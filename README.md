@@ -30,30 +30,23 @@ In conclusion, each GNSS enhancement technique presents a unique balance of accu
 
 
 
-## Task 2 – GNSS in Urban Areas
-Urban areas present significant challenges to GNSS positioning due to signal blockage, multipath effects, and poor satellite visibility. 
+Task 2 – GNSS in Urban Areas
+Urban areas present significant challenges to GNSS positioning due to signal blockage, multipath effects, and poor satellite visibility.
 
-**Objective:**
+Objective
 Improve the GNSS positioning performance using the "Urban" data provided. The ground truth in geodetic coordinates is:
-- Latitude: 22.3198722
-- Longitude: 114.209101777778
-- Altitude: 3.0 m
 
-**Hint:** Use the skymask to identify satellite visibility blockage.
-
+Latitude: 22.3198722
+Longitude: 114.209101777778
+Altitude: 3.0 m
+Hint: Use the skymask to identify satellite visibility blockage.
 
 Satellite Positioning with Sky Mask Optimization
-
-
-
-##### Prepare sky mask data (skymask.mat):
-
-361×2 matrix format:
+Prepare sky mask data (skymask.mat):
+The data format is a 361×2 matrix:
 
 Column 1: Azimuth angles (0° to 360°)
-
 Column 2: Minimum visible elevation angle for each azimuth
-
 
 % Load sky mask data
 load skymask.mat;
@@ -73,19 +66,17 @@ if az_index >= 0 && az_index < 360
         % - Floor(el_diff/10) gives integer number of 10° increments
         % - Multiply by 0.1 for 10% reduction per 10°
         % - Clamped between 10% (min) and 90% (max) reduction
-        reduction_factor =  floor(el_diff/10)+1;
+        reduction_factor = floor(el_diff/10) + 1;
         
         % Apply dynamic weight adjustment
         weight(i) = weight(i) / reduction_factor;
        
         % Optional debug output
         fprintf('Sat %d: Az=%d°, El=%.2f° < Skymask=%.2f° (Diff=%.2f°), Weight reduced by %.0f%%\n', ...
-               i, az_index, el(i), skymask_el, el_diff, reduction_factor*100);
+               i, az_index, el(i), skymask_el, el_diff, reduction_factor * 100);
     end
-
 end
-
-We compared three weighting schemes using skymask to improve positioning accuracy. The first scheme is the weight scheme based on elevation angle, serving as the baseline. The second scheme halves the weight of NLOS satellites, resulting in a *5%* improvement in accuracy compared to the first. The third scheme involves dynamic adjustment based on the difference between the address cutoff altitude angle and the satellite altitude angle, achieving an 8% improvement. Despite these enhancements, the overall effectiveness is limited, possibly due to the small number of satellites and the fact that reducing NLOS satellite weights may compromise the contribution of the satalliate on spatial geometric distribution.
+We compared three weighting schemes using skymask to improve positioning accuracy. The first scheme is the weight scheme based on elevation angle, serving as the baseline. The second scheme halves the weight of NLOS satellites, resulting in a 5% improvement in accuracy compared to the first. The third scheme involves dynamic adjustment based on the difference between the address cutoff altitude angle and the satellite altitude angle, achieving an 8% improvement. Despite these enhancements, the overall effectiveness is limited, possibly due to the small number of satellites and the fact that reducing NLOS satellite weights may compromise the contribution of the satellites to the spatial geometric distribution.
 
 
 
