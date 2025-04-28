@@ -40,6 +40,7 @@ Hint: Use the skymask to identify satellite visibility blockage.
 
 ### Satellite Positioning with Sky Mask Optimization
 % Prepare sky mask data (skymask.mat):
+![image](https://github.com/user-attachments/assets/6457e02f-ec68-4291-8f63-12cca005ae14)
 
 % The data format is a 361×2 matrix:
 
