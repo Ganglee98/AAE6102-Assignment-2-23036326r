@@ -56,7 +56,7 @@ The first scheme is the weight scheme based on elevation angle, serving as the b
 
 The second scheme halves the weight of NLOS satellites, resulting in a 2.13% improvement in accuracy compared to the first. 
 
-The third scheme involves dynamic adjustment based on the difference between the address cutoff altitude angle and the satellite altitude angle, achieving an 8% improvement. Despite these enhancements, the overall effectiveness is limited, possibly due to the small number of satellites and the fact that reducing NLOS satellite weights may compromise the contribution of the satellites to the spatial geometric distribution.
+The third scheme involves dynamic adjustment based on the difference between the address cutoff altitude angle and the satellite altitude angle. Despite these enhancements, the overall effectiveness is limited, possibly due to the small number of satellites and the fact that reducing NLOS satellite weights may compromise the contribution of the satellites to the spatial geometric distribution.
 
 **The following figure shows the third dynamic adjustment scheme. According to the skymask, the weight adjustment range of each NLOS satellite is different.**
 
