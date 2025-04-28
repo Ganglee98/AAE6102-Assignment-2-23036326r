@@ -51,6 +51,8 @@ load skymask.mat;
 [az, el, ~] = topocent(pos(1:3, :), Rot_X - pos(1:3, :));
 
 %--- Compare with skymask and dynamically adjust weight ----------------
+
+
 az_index = round(az(i)); % Round azimuth to nearest integer index
 if az_index >= 0 && az_index < 360
     skymask_el = skymask(az_index + 1, 2); % Get corresponding skymask elevation
