@@ -60,7 +60,8 @@ The third scheme involves dynamic adjustment based on the difference between the
 
 **The following figure shows the third dynamic adjustment scheme. According to the skymask, the weight adjustment range of each NLOS satellite is different.**
 
-![image](https://github.com/user-attachments/assets/6a0bf11c-ec88-4e70-97d0-d47088892563)
+![Uploading image.png…]()
+
 
 
 
