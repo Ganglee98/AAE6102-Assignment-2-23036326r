@@ -40,8 +40,11 @@ Hint: Use the skymask to identify satellite visibility blockage.
 
 ### Satellite Positioning with Sky Mask Optimization
 % Prepare sky mask data (skymask.mat):
+
 % The data format is a 361×2 matrix:
+
 % Column 1: Azimuth angles (0° to 360°)
+
 % Column 2: Minimum visible elevation angle for each azimuth
 
 ![image](https://github.com/user-attachments/assets/adfabf89-83f7-4d07-9390-c0649a32caac)
