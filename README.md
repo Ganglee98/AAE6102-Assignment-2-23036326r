@@ -74,15 +74,17 @@ if az_index >= 0 && az_index < 360
         % - Floor(el_diff/10) gives integer number of 10° increments
         % - Multiply by 0.1 for 10% reduction per 10°
         % - Clamped between 10% (min) and 90% (max) reduction
-        reduction_factor = max(0.1, min(0.9, floor(el_diff/10)*0.1));
+        reduction_factor =  floor(el_diff/10)+1;
         
         % Apply dynamic weight adjustment
-        weight(i) = weight(i) * (1 - reduction_factor);
-        
+        weight(i) = weight(i) / reduction_factor;
+       
         % Optional debug output
         fprintf('Sat %d: Az=%d°, El=%.2f° < Skymask=%.2f° (Diff=%.2f°), Weight reduced by %.0f%%\n', ...
                i, az_index, el(i), skymask_el, el_diff, reduction_factor*100);
     end
+
+end
 
 
 
