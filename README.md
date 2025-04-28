@@ -43,8 +43,10 @@ Improve the GNSS positioning performance using the "Urban" data provided. The gr
 **Hint:** Use the skymask to identify satellite visibility blockage.
 
 
+Satellite Positioning with Sky Mask Optimization
+MATLAB implementation for adjusting satellite weights based on sky visibility constraints.
 
-
+Core Implementation
 Prepare sky mask data (skymask.mat):
 
 361×2 matrix format:
@@ -53,10 +55,9 @@ Column 1: Azimuth angles (0° to 360°)
 
 Column 2: Minimum visible elevation angle for each azimuth
 
-1. **Load sky mask data**:
-load skymask.mat;  % Load elevation constraints by azimuth
-[az, el, ~] = topocent(pos(1:3, :), Rot_X - pos(1:3, :));
+Main processing code:
 
+matlab
 % Load sky mask data
 load skymask.mat;
 
@@ -74,7 +75,6 @@ for i = 1:nmbOfSatellites
 end
 
 % Continue with positioning calculations...
-
 
 
 
