@@ -44,7 +44,8 @@ Hint: Use the skymask to identify satellite visibility blockage.
 % Column 1: Azimuth angles (0° to 360°)
 % Column 2: Minimum visible elevation angle for each azimuth
 
-![image](https://github.com/user-attachments/assets/933a861c-4c3f-4ca7-9de1-2fade03f20e9)
+![image](https://github.com/user-attachments/assets/adfabf89-83f7-4d07-9390-c0649a32caac)
+
 
 
 We compared three weighting schemes using skymask to improve positioning accuracy. 
