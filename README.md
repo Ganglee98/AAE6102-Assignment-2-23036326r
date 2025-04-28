@@ -42,6 +42,58 @@ Improve the GNSS positioning performance using the "Urban" data provided. The gr
 
 **Hint:** Use the skymask to identify satellite visibility blockage.
 
+
+
+
+
+
+SkyMask is a tool designed to enhance positioning accuracy in satellite navigation. It dynamically adjusts the weights of satellite signals to provide more accurate positioning results.
+
+Usage Steps
+Load SkyMask Data
+
+Load the sky mask data in MATLAB for subsequent use:
+
+matlab
+
+
+load skymask.mat;  % Load sky mask data
+Calculate Satellite Position
+
+Calculate the azimuth and elevation angles of the satellites and adjust the corresponding weights based on the sky mask:
+
+matlab
+
+
+% Calculate the azimuth and elevation angles of the satellites
+[az, el, ~] = topocent(pos(1:3, :), Rot_X - pos(1:3, :));
+
+% Adjust weights based on the sky mask
+for i = 1:nmbOfSatellites
+    az_index = round(az(i));  % Round the azimuth angle
+    if az_index >= 0 && az_index <= 360
+        skymask_el = skymask(az_index + 1, 2);  % Get the corresponding elevation angle
+        if el(i) < skymask_el
+            weight(i) = weight(i) / 2;  % Halve the weight
+        end
+    end
+end
+Perform Positioning Calculation
+
+Update the receiver position iteratively to optimize the positioning results.
+
+Conclusion
+Using SkyMask effectively improves satellite positioning accuracy by reducing the influence of low elevation angle satellites, resulting in more stable positioning outcomes.
+
+
+
+
+
+
+
+
+
+
 ## Task 3 – GPS RAIM (Receiver Autonomous Integrity Monitoring)
 Develop a classic weighted RAIM algorithm to improve and monitor positioning performance.
 
