@@ -52,19 +52,29 @@ load skymask.mat;
 
 %--- Compare with skymask and dynamically adjust weight ---
 az_index = round(az(i)); % Round azimuth to nearest integer index
+
 if az_index >= 0 && az_index < 360
+
     skymask_el = skymask(az_index + 1, 2); % Get corresponding skymask elevation
+    
     if el(i) < skymask_el
+    
         % Calculate elevation difference
+        
         el_diff = skymask_el - el(i);
         
         % Compute dynamic reduction factor based on elevation difference
+        
         % Floor(el_diff/10) gives integer number of 10° increments
+        
         % Multiply by 0.1 for 10% reduction per 10°
+        
         % Clamped between 10% (min) and 90% (max) reduction
+        
         reduction_factor = floor(el_diff/10) + 1;
         
         % Apply dynamic weight adjustment
+        
         weight(i) = weight(i) / reduction_factor;
         
         % Optional debug output
