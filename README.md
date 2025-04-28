@@ -30,7 +30,7 @@ In conclusion, each GNSS enhancement technique presents a unique balance of accu
 
 
 
-Task 2 – GNSS in Urban Areas
+##Task 2 – GNSS in Urban Areas
 Urban areas present significant challenges to GNSS positioning due to signal blockage, multipath effects, and poor satellite visibility.
 
 Objective
