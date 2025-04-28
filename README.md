@@ -45,13 +45,35 @@ Improve the GNSS positioning performance using the "Urban" data provided. The gr
 
 
 
+Prepare sky mask data (skymask.mat):
 
+361×2 matrix format:
+
+Column 1: Azimuth angles (0° to 360°)
+
+Column 2: Minimum visible elevation angle for each azimuth
 
 1. **Load sky mask data**:
 load skymask.mat;  % Load elevation constraints by azimuth
+[az, el, ~] = topocent(pos(1:3, :), Rot_X - pos(1:3, :));
 
+% Load sky mask data
+load skymask.mat;
 
+% Calculate satellite positions
+[az, el, ~] = topocent(pos(1:3, :), Rot_X - pos(1:3, :));
 
+% Adjust weights based on sky visibility
+for i = 1:nmbOfSatellites
+    az_idx = round(az(i));
+    if az_idx >= 0 && az_idx <= 360
+        if el(i) < skymask(az_idx + 1, 2)
+            weight(i) = weight(i)/2;  % Reduce weight for obstructed satellites
+        end
+    end
+end
+
+% Continue with positioning calculations...
 
 
 
