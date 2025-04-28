@@ -94,7 +94,7 @@ The third scheme involves dynamic adjustment based on the difference between the
 |   |   |   |
 |---|---|---|
 | ① | ② | ③ |
-| 71.04 m | 69.52 | 70.4 |
+| 71.04 m | 69.52 | 70.03 |
 
 
 
