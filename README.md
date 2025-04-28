@@ -41,7 +41,7 @@ Longitude: 114.209101777778
 Altitude: 3.0 m
 Hint: Use the skymask to identify satellite visibility blockage.
 
-% Satellite Positioning with Sky Mask Optimization
+### Satellite Positioning with Sky Mask Optimization
 
 % Prepare sky mask data (skymask.mat): The data format is a 361×2 matrix:
 % Column 1: Azimuth angles (0° to 360°)
