@@ -35,10 +35,6 @@ Urban areas present significant challenges to GNSS positioning due to signal blo
 
 ### Objective
 Improve the GNSS positioning performance using the "Urban" data provided. The ground truth in geodetic coordinates is:
-
-Latitude: 22.3198722
-Longitude: 114.209101777778
-Altitude: 3.0 m
 Hint: Use the skymask to identify satellite visibility blockage.
 
 ### Satellite Positioning with Sky Mask Optimization
