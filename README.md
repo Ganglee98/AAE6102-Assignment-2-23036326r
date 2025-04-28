@@ -48,7 +48,6 @@ Improve the GNSS positioning performance using the "Urban" data provided. The gr
 
 
 1. **Load sky mask data**:
-```matlab
 load skymask.mat;  % Load elevation constraints by azimuth
 
 
