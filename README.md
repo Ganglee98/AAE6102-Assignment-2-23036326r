@@ -41,16 +41,21 @@ Hint: Use the skymask to identify satellite visibility blockage.
 ### Satellite Positioning with Sky Mask Optimization
 
 % Prepare sky mask data (skymask.mat): The data format is a 361×2 matrix:
+
 % Column 1: Azimuth angles (0° to 360°)
+
 % Column 2: Minimum visible elevation angle for each azimuth
 
 % Load sky mask data
+
 load skymask.mat;
 
 % Calculate satellite positions
+
 [az, el, ~] = topocentipos(13, i), Rot X - pos(13, i);
 
 %--- Compare with skymask and dynamically adjust weight ---
+
 az_index = round(az(i)); % Round azimuth to nearest integer index
 
 if az_index >= 0 && az_index < 360
