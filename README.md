@@ -62,17 +62,24 @@ load skymask.mat;
 % Calculate satellite positions  
 [az, el, ~] = topocent(pos(1:3, :), Rot_X - pos(1:3, :));
 
-% Adjust weights based on sky visibility
-for i = 1:nmbOfSatellites
-    az_idx = round(az(i));
-    
-    if az_idx >= 0 && az_idx <= 360
-        if el(i) < skymask(az_idx + 1, 2)
-            weight(i) = weight(i)/2;  % Reduce weight for obstructed satellites
-        end
+az_index = round(az(i)); % 将方位角四舍五入为整数
+if az_index >= 0 && az_index < 360
+    skymask_el = skymask(az_index + 1, 2); % 获取对应的高度角
+    if el(i) < skymask_el
+        % 计算高度角差值
+        el_diff = skymask_el - el(i);
+        
+        % 计算动态调整因子 - 基于差值/10的整数部分
+        % 确保至少减少一定比例(如10%)，最大不超过某个上限(如90%)
+        reduction_factor = max(0.1, min(0.9, floor(el_diff/10)*0.1));
+        
+        % 应用动态调整
+        weight(i) = weight(i) * (1 - reduction_factor);
+        
+        % 调试信息(可选)
+        fprintf('Sat %d: Az=%d°, El=%.2f° < Skymask=%.2f° (Diff=%.2f), Weight reduced by %.0f%%\n', ...
+               i, az_index, el(i), skymask_el, el_diff, reduction_factor*100);
     end
-end
-
 
 
 
