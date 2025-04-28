@@ -100,7 +100,12 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
 - Compute the 3D protection level (PL) with a probability of false alarm (P_fa) of \(10^{-2}\) and missed detection (P_md) of \(10^{-7}\). Use a GPS pseudorange measurement sigma (σ) of 3m.
 - Evaluate GNSS integrity monitoring performance using a Stanford Chart analysis with a 3D alarm limit (AL) of 50 meters.
 
-### Task 4 – LEO Satellites for Navigation
+
+
+
+
+
+## Task 4 – LEO Satellites for Navigation
 Write a short essay (500–1000 words) discussing the difficulties and challenges of using LEO communication satellites for GNSS navigation.
 
 The Challenges of Using Low Earth Orbit Satellites for Navigation （poe o1 link:  https://poe.com/s/6jfp5Iqu9jVZzk2maFkI）
