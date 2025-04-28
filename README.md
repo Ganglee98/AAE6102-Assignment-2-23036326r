@@ -47,7 +47,7 @@ Hint: Use the skymask to identify satellite visibility blockage.
 
 % Column 2: Minimum visible elevation angle for each azimuth
 
-![image](https://github.com/user-attachments/assets/adfabf89-83f7-4d07-9390-c0649a32caac)
+![image](https://github.com/user-attachments/assets/2dbb969b-846a-41e9-a1d4-f1345e8ab071)
 
 
 
@@ -60,7 +60,8 @@ The third scheme involves dynamic adjustment based on the difference between the
 
 **The following figure shows the third dynamic adjustment scheme. According to the skymask, the weight adjustment range of each NLOS satellite is different.**
 
-![image](https://github.com/user-attachments/assets/dd21620b-56ec-4aa9-a557-a1b7025935ab)
+![image](https://github.com/user-attachments/assets/d3019d36-b856-4045-b05f-565a91512ef9)
+
 
 
 
