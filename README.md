@@ -13,7 +13,7 @@ Write a short essay (500–1000 words) comparing the pros and cons of the follow
 
 
 
-#### GNSS Techniques for Smartphone Navigation
+#### GNSS Techniques for Smartphone Navigation （poe o1 link:  https://poe.com/s/6jfp5Iqu9jVZzk2maFkI）
 
 The evolution of Global Navigation Satellite System (GNSS) technology has introduced various techniques to enhance positional accuracy, particularly for smartphone navigation. Among these techniques, Differential GNSS (DGNSS), Real-Time Kinematic (RTK), Precise Point Positioning (PPP), and the hybrid PPP-RTK each offer distinct advantages and challenges.
 
