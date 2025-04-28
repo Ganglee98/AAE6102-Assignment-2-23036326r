@@ -44,10 +44,10 @@ Improve the GNSS positioning performance using the "Urban" data provided. The gr
 
 
 Satellite Positioning with Sky Mask Optimization
-MATLAB implementation for adjusting satellite weights based on sky visibility constraints.
 
-Core Implementation
-Prepare sky mask data (skymask.mat):
+
+
+#####Prepare sky mask data (skymask.mat):
 
 361×2 matrix format:
 
@@ -55,7 +55,8 @@ Column 1: Azimuth angles (0° to 360°)
 
 Column 2: Minimum visible elevation angle for each azimuth
 
-Main processing code:
+
+#####Main processing code:
 
 matlab
 % Load sky mask data
