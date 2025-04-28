@@ -1,10 +1,9 @@
-# GNSS Assignment
+# Assignment-2
 
-## Due Date: 1st May 2025
 
-### Assignment Tasks
+## Assignment Tasks
 
-### Task 1 – Differential GNSS Positioning
+## Task 1 – Differential GNSS Positioning
 Write a short essay (500–1000 words) comparing the pros and cons of the following GNSS techniques for smartphone navigation:
 
 - **Differential GNSS (DGNSS)**
@@ -12,7 +11,7 @@ Write a short essay (500–1000 words) comparing the pros and cons of the follow
 - **Precise Point Positioning (PPP)**
 - **PPP-RTK**
 
-### Task 2 – GNSS in Urban Areas
+## Task 2 – GNSS in Urban Areas
 Urban areas present significant challenges to GNSS positioning due to signal blockage, multipath effects, and poor satellite visibility. 
 
 **Objective:**
@@ -23,7 +22,7 @@ Improve the GNSS positioning performance using the "Urban" data provided. The gr
 
 **Hint:** Use the skymask to identify satellite visibility blockage.
 
-### Task 3 – GPS RAIM (Receiver Autonomous Integrity Monitoring)
+## Task 3 – GPS RAIM (Receiver Autonomous Integrity Monitoring)
 Develop a classic weighted RAIM algorithm to improve and monitor positioning performance.
 
 **Requirements:**
@@ -34,10 +33,10 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
 - Compute the 3D protection level (PL) with a probability of false alarm (P_fa) of \(10^{-2}\) and missed detection (P_md) of \(10^{-7}\). Use a GPS pseudorange measurement sigma (σ) of 3m.
 - Evaluate GNSS integrity monitoring performance using a Stanford Chart analysis with a 3D alarm limit (AL) of 50 meters.
 
-### Task 4 – LEO Satellites for Navigation
+## Task 4 – LEO Satellites for Navigation
 Write a short essay (500–1000 words) discussing the difficulties and challenges of using LEO communication satellites for GNSS navigation.
 
-### Task 5 – GNSS Remote Sensing
+## Task 5 – GNSS Remote Sensing
 Write a short essay (500–1000 words) discussing the impact of GNSS in remote sensing. Choose one of the following topics:
 
 - **GNSS Reflectometry (GNSS-R)**
