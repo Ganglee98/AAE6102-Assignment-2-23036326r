@@ -77,7 +77,10 @@ if az_index >= 0 && az_index < 360
     end
 end
 
-The following figure shows the third dynamic adjustment scheme. According to the skymask, the weight adjustment range of each NLOS satellite is different.
+We compared three weighting schemes using skymask to improve positioning accuracy. 
+The first scheme is the weight scheme based on elevation angle, serving as the baseline. 
+The second scheme halves the weight of NLOS satellites, resulting in a 2.13% improvement in accuracy compared to the first. 
+The third scheme involves dynamic adjustment based on the difference between the address cutoff altitude angle and the satellite altitude angle, achieving an 8% improvement. Despite these enhancements, the overall effectiveness is limited, possibly due to the small number of satellites and the fact that reducing NLOS satellite weights may compromise the contribution of the satellites to the spatial geometric distribution.The following figure shows the third dynamic adjustment scheme. According to the skymask, the weight adjustment range of each NLOS satellite is different.
 
 ![image](https://github.com/user-attachments/assets/6a0bf11c-ec88-4e70-97d0-d47088892563)
 
@@ -86,10 +89,7 @@ The following figure shows the third dynamic adjustment scheme. According to the
 
 
 
-We compared three weighting schemes using skymask to improve positioning accuracy. 
-The first scheme is the weight scheme based on elevation angle, serving as the baseline. 
-The second scheme halves the weight of NLOS satellites, resulting in a 2.13% improvement in accuracy compared to the first. 
-The third scheme involves dynamic adjustment based on the difference between the address cutoff altitude angle and the satellite altitude angle, achieving an 8% improvement. Despite these enhancements, the overall effectiveness is limited, possibly due to the small number of satellites and the fact that reducing NLOS satellite weights may compromise the contribution of the satellites to the spatial geometric distribution.
+
 |   |   |   |
 |---|---|---|
 | ① | ② | ③ |
