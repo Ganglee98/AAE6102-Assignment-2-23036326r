@@ -76,7 +76,8 @@ if az_index >= 0 && az_index < 360
                i, az_index, el(i), skymask_el, el_diff, reduction_factor * 100);
     end
 end
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/6a0bf11c-ec88-4e70-97d0-d47088892563)
+
 
 
 
