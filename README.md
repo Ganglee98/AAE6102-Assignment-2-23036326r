@@ -87,7 +87,7 @@ if az_index >= 0 && az_index < 360
             i, az_index, el(i), skymask_el, el_diff, reduction_factor * 100);
     end
 end
-%------
+
 
 We compared three weighting schemes using skymask to improve positioning accuracy. 
 The first scheme is the weight scheme based on elevation angle, serving as the baseline. 
