@@ -35,6 +35,7 @@ Urban areas present significant challenges to GNSS positioning due to signal blo
 
 ### Objective
 Improve the GNSS positioning performance using the "Urban" data provided. The ground truth in geodetic coordinates is:
+
 Hint: Use the skymask to identify satellite visibility blockage.
 
 ### Satellite Positioning with Sky Mask Optimization
