@@ -50,8 +50,6 @@ Hint: Use the skymask to identify satellite visibility blockage.
 
 % Column 2: Minimum visible elevation angle for each azimuth
 
-![2](https://github.com/user-attachments/assets/d0f386bd-4195-417e-a726-13482e938c1d)
-
 
 
 
@@ -67,6 +65,11 @@ We compared three weighting schemes using skymask to improve positioning accurac
 ③The third scheme involves dynamic adjustment based on the difference between the address cutoff altitude angle and the satellite altitude angle. Despite these enhancements, the overall effectiveness is limited, possibly due to the small number of satellites and the fact that reducing NLOS satellite weights may compromise the contribution of the satellites to the spatial geometric distribution.
 
 **The following figure shows the third dynamic adjustment scheme. According to the skymask, the weight adjustment range of each NLOS satellite is different.**
+
+
+![2](https://github.com/user-attachments/assets/d0f386bd-4195-417e-a726-13482e938c1d)
+
+
 
 ![image](https://github.com/user-attachments/assets/d3019d36-b856-4045-b05f-565a91512ef9)
 
