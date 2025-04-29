@@ -91,21 +91,36 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
 - Effectively detect and exclude faulty or low-quality measurements.
 
 
-### 1. Weighted Least Squares Solution
-W = diag(weight); % Elevation-based weights (sin(el))
-x = (A'*W*A) \ (A'*W*omc); % Weighted position update
-### 2. Fault Detection
-r = omc - A*x; % Residuals
-sse = r'*W*r; % Weighted SSE
-threshold = chi2inv(0.999, n-4); % 0.1% false alarm
-if sse > threshold
-    % Fault detected
-end
-### 3. Fault Exclusion
-[~, worst_sat] = max(abs(r./sqrt(diag(W)))); % Normalized residuals
-valid_sats = setdiff(1:n, worst_sat); % Exclude worst satellite
-x_new = (A(valid_sats,:)'*W(valid_sats,:)*A(valid_sats,:)) \ ... % Recompute
-         (A(valid_sats,:)'*W(valid_sats,:)*omc(valid_sats));
+   %=== RAIM故障检测 ============================================
+        r = omc - A*x;
+        sse =sqrt(r' * C * r);
+        dof = length(current_sats) - 4;
+        
+        % 获取卡方阈值
+        idx = find(chi2_table(:,1) == length(current_sats), 1);
+        if isempty(idx)
+            chi2_threshold = chi2inv(1-alpha, dof);
+        else
+            chi2_threshold = chi2_table(idx,2);
+        end
+        
+        % 故障判断
+        if sse > chi2_threshold
+            % 找出故障卫星
+            normalized_res = abs(r) ./ sqrt(diag(inv(C)));
+            [~, worst_sat_idx] = max(normalized_res);
+            worst_sat = current_sats(worst_sat_idx);
+            
+            fprintf('检测到故障 (SSE=%.3f > 阈值=%.3f)\n', sse, chi2_threshold);
+            fprintf('排除卫星 %d (归一化残差=%.3f)\n', worst_sat, max(normalized_res));
+            
+            % 更新卫星列表
+            faulty_sats = [faulty_sats, worst_sat];
+            current_sats = setdiff(current_sats, worst_sat);
+        else
+            fprintf('RAIM验证通过 (SSE=%.3f <= 阈值=%.3f)\n', sse, chi2_threshold);
+            break;  % 退出RAIM循环
+        end
 
 
 
