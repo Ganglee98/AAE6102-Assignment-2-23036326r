@@ -137,6 +137,7 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
          m = length(current_sats)+1;
          S = (A' * C * A) \ (A' * C);
          P = A*S;
+         
      % 2. Calculate the 3D slope of each satellite
          Slope_3D = zeros(m, 1);
         for i = 1:m
