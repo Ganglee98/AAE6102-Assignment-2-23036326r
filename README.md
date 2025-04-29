@@ -92,6 +92,8 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
 
 
    %=== RAIM故障检测 ============================================
+
+        % snapshot test statistic
         r = omc - A*x;
         sse =sqrt(r' * C * r);
         dof = length(current_sats) - 4;
