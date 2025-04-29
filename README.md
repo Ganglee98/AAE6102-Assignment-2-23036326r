@@ -132,7 +132,8 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
 ### Compute the 3D protection level (PL) with a probability of false alarm (P_fa) of \(10^{-2}\) and missed detection (P_md) of \(10^{-7}\). Use a GPS pseudorange measurement sigma (σ) of 3m.
    ####  Protection Level Calculation
    %================================
-   % 1. Calculate the projection matrix (using the current A matrix and weights)
+   
+   %  1. Calculate the projection matrix (using the current A matrix and weights)
          m = length(current_sats)+1;
          S = (A' * C * A) \ (A' * C);
          P = A*S;
