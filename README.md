@@ -133,38 +133,37 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
    ####  Protection Level Calculation
    %================================
        
-        % Compute projection matrix
-         S = (A'*A) \ A';  % Least-squares projection matrix
-         P = A*S;          % Residual projection matrix
-        
-        % Compute slopes for each satellite
-        slopes = zeros(length(current_sats), 1);
-        for i = 1:length(current_sats)
-            P_ii = P(i,i);  % Diagonal element of P matrix
-            S_row = S(:,i); % Corresponding row of S matrix
-            slopes(i) = sqrt(sum(S_row(1:3).^2) / sqrt(1 - P_ii));
-        end
-        SLOPE_max = max(slopes);
-        
-        % Compute threshold
-   
-        idx = find(chi2_table(:,1) == length(current_sats), 1);
-        if isempty(idx)
-            T = chi2inv(1-alpha, dof);
-        else
-            T = chi2_table(idx,2);
-        end
-        
-        % Pseudorange error sigma (3m as given)
-        sigma_pr = 3;  % meters
-        
-        % Missed detection multiplier (for P_md = 1e-7)
-        K_md = norminv(1 - 1e-7/2);  % ~5.33
-        
-        % Compute 3D Protection Level
-        PL = T * SLOPE_max * sigma_pr + K_md * sigma_pr;
-        
-        fprintf('PL: PL = %.2f 米\n', PL);
+        % 1. Calculate the projection matrix (using the current A matrix and weights)
+m = length(current_sats)+1;
+S = (A' * C * A) \ (A' * C);
+P = A*S;
+% 2. Calculate the 3D slope of each satellite
+Slope_3D = zeros(m, 1);
+for i = 1:m
+Slope_3D(i) = sqrt(S(1,i)^2 + S(2,i)^2 + S(3,i)^2) / sqrt(P(i,i));
+end
+Slope_3D_max = max(Slope_3D);
+
+% 3. Get the chi-square threshold (use the same threshold table as RAIM detection)
+idx = find(chi2_table(:,1) == m, 1);
+if isempty(idx)
+T = chi2inv(1-alpha, m-4);
+else
+T = chi2_table(idx,2);
+end
+
+% 4. Calculate the RMS of the position error
+cov_xyz = inv(A' * C * A);
+RMS_3D = sqrt(cov_xyz(1,1) + cov_xyz(2,2) + cov_xyz(3,3));
+
+% 5. Calculate the 3D protection level (conservative coefficient k=3.0)
+k_3D = 3.0;
+PL = Slope_3D_max * sqrt(T) + k_3D * RMS_3D;
+
+fprintf('Protection level calculation: PL_3D = %.2f meters (maximum slope=%.2f, RMS=%.2f)\n',...
+PL, Slope_3D_max, RMS_3D);
+
+fprintf('Calculate protection level: PL = %.2f meters\n', PL);
 
 
 
