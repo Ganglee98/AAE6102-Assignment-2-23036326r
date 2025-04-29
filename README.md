@@ -146,8 +146,8 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
         end
         SLOPE_max = max(slopes);
         
-        % Compute threshold multiplier (chi-square inverse)
-        % 获取卡方阈值
+        % Compute threshold
+   
         idx = find(chi2_table(:,1) == length(current_sats), 1);
         if isempty(idx)
             T = chi2inv(1-alpha, dof);
@@ -164,7 +164,7 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
         % Compute 3D Protection Level
         PL = T * SLOPE_max * sigma_pr + K_md * sigma_pr;
         
-        fprintf('计算保护等级: PL = %.2f 米\n', PL);
+        fprintf('PL: PL = %.2f 米\n', PL);
 
 
 
