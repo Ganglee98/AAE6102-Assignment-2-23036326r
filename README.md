@@ -50,7 +50,8 @@ Hint: Use the skymask to identify satellite visibility blockage.
 
 % Column 2: Minimum visible elevation angle for each azimuth
 
-![2](https://github.com/user-attachments/assets/86e3ed08-ea24-41f2-bee8-87e4f373903a)
+![2](https://github.com/user-attachments/assets/d0f386bd-4195-417e-a726-13482e938c1d)
+
 
 
 
