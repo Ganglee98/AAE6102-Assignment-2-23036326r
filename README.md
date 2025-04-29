@@ -90,8 +90,8 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
 - Implement a weighted RAIM algorithm using the provided “Open-Sky” data.
 - Effectively detect and exclude faulty or low-quality measurements.
 
-
-   %=== RAIM ============================================
+   ### RAIM
+   %===============================================
 
         % snapshot test statistic
           r = omc - A*x;  % Calculate the residuals
