@@ -94,35 +94,35 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
    %=== RAIM故障检测 ============================================
 
         % snapshot test statistic
-r = omc - A*x;  % Calculate the residuals
-sse = sqrt(r' * C * r);  % Calculate the sum of squared errors
-dof = length(current_sats) - 4;  % Degrees of freedom
+          r = omc - A*x;  % Calculate the residuals
+          sse = sqrt(r' * C * r);  % Calculate the sum of squared errors
+          dof = length(current_sats) - 4;  % Degrees of freedom
 
-% chi value
-idx = find(chi2_table(:,1) == length(current_sats), 1);
-if isempty(idx)
-    chi2_threshold = chi2inv(1-alpha, dof);  % Calculate chi-squared threshold
-else
-    chi2_threshold = chi2_table(idx,2);  % Retrieve threshold from chi-squared table
-end
+        % chi value
+         idx = find(chi2_table(:,1) == length(current_sats), 1);
+         if isempty(idx)
+          chi2_threshold = chi2inv(1-alpha, dof);  % Calculate chi-squared threshold
+         else
+          chi2_threshold = chi2_table(idx,2);  % Retrieve threshold from chi-squared table
+         end
 
-% fault detection
-if sse > chi2_threshold
-    % find fault
-    normalized_res = abs(r) ./ sqrt(diag(inv(C)));  % Normalize residuals
-    [~, worst_sat_idx] = max(normalized_res);  % Find the satellite with the maximum normalized residual
-    worst_sat = current_sats(worst_sat_idx);
+        % fault detection
+         if sse > chi2_threshold
+         % find fault
+         normalized_res = abs(r) ./ sqrt(diag(inv(C)));  % Normalize residuals
+         [~, worst_sat_idx] = max(normalized_res);  % Find the satellite with the maximum normalized residual
+          worst_sat = current_sats(worst_sat_idx);
     
-    fprintf('Fault detected (SSE=%.3f > threshold=%.3f)\n', sse, chi2_threshold);
-    fprintf('Excluding satellite %d (normalized residual=%.3f)\n', worst_sat, max(normalized_res));
+          fprintf('Fault detected (SSE=%.3f > threshold=%.3f)\n', sse, chi2_threshold);
+          fprintf('Excluding satellite %d (normalized residual=%.3f)\n', worst_sat, max(normalized_res));
     
-    % Update satellite list
-    faulty_sats = [faulty_sats, worst_sat];  % Add the faulty satellite to the list
-    current_sats = setdiff(current_sats, worst_sat);  % Remove the faulty satellite from current satellites
-else
-    fprintf('RAIM validation passed (SSE=%.3f <= threshold=%.3f)\n', sse, chi2_threshold);
-    break;  % Exit the RAIM loop
-end
+        % Update satellite list
+        faulty_sats = [faulty_sats, worst_sat];  % Add the faulty satellite to the list
+        current_sats = setdiff(current_sats, worst_sat);  % Remove the faulty satellite from current satellites
+        else
+        fprintf('RAIM validation passed (SSE=%.3f <= threshold=%.3f)\n', sse, chi2_threshold);
+        break;  % Exit the RAIM loop
+        end
 
 
 
