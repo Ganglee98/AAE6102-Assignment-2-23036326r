@@ -91,17 +91,17 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
 - Effectively detect and exclude faulty or low-quality measurements.
 
 
-1. Weighted Least Squares Solution
+### 1. Weighted Least Squares Solution
 W = diag(weight); % Elevation-based weights (sin(el))
 x = (A'*W*A) \ (A'*W*omc); % Weighted position update
-2. Fault Detection
+### 2. Fault Detection
 r = omc - A*x; % Residuals
 sse = r'*W*r; % Weighted SSE
 threshold = chi2inv(0.999, n-4); % 0.1% false alarm
 if sse > threshold
     % Fault detected
 end
-3. Fault Exclusion
+### 3. Fault Exclusion
 [~, worst_sat] = max(abs(r./sqrt(diag(W)))); % Normalized residuals
 valid_sats = setdiff(1:n, worst_sat); % Exclude worst satellite
 x_new = (A(valid_sats,:)'*W(valid_sats,:)*A(valid_sats,:)) \ ... % Recompute
