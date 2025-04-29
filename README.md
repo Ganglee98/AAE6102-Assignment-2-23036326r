@@ -185,6 +185,18 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
 
    %===============================================
 ### Evaluate GNSS integrity monitoring performance using a Stanford Chart analysis with a 3D alarm limit (AL) of 50 meters.
+
+#### analysis
+The first graph shows two lines: one for Protection Level (PL) and one for Position Error (PE). The blue line represents PL, which is stable and indicates a safe threshold for the system. The red line represents PE, which moves up and down, showing how accurate the system is.
+
+When the PE line is below the PL line, the system is working well, indicating that the position is accurate and safe. However, if the PE line goes above the PL line, it suggests potential problems, meaning the system may not be reliable or safe.
+
+High PE values can lead to incorrect information about the system's location, which can be dangerous in critical situations. If PE frequently approaches or exceeds PL, it indicates a need for improvement in the system's accuracy to ensure reliability.
+
+Monitoring both PL and PE is important. Keeping PE below PL helps maintain safety and trust in the system.
+
+
+
 ![pl](https://github.com/user-attachments/assets/0a4571bc-ec20-4672-8f4d-11aae9d335b5)
 
 ![untitled](https://github.com/user-attachments/assets/1f6a420e-a97e-498a-97ec-df6afb3aea75)
