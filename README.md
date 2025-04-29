@@ -124,9 +124,7 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
         break;  % Exit the RAIM loop
         end
 
-![1个fault](https://github.com/user-attachments/assets/938fbfa6-2025-4e2f-bc34-0868005ab742)
-
-![image](https://github.com/user-attachments/assets/73e70b26-ce16-452c-9357-470316aa0599)
+![1个fault](https://github.com/user-attachments/assets/938fbfa6-2025-4e2f-bc34-0868005ab742)    ![image](https://github.com/user-attachments/assets/73e70b26-ce16-452c-9357-470316aa0599)
 
 
 
