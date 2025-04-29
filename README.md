@@ -134,6 +134,7 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
    %================================
    
    %  1. Calculate the projection matrix (using the current A matrix and weights)
+   
          m = length(current_sats)+1;
          S = (A' * C * A) \ (A' * C);
          P = A*S;
