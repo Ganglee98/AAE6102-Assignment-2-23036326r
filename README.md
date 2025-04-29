@@ -185,6 +185,8 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
 
    %===============================================
 ### Evaluate GNSS integrity monitoring performance using a Stanford Chart analysis with a 3D alarm limit (AL) of 50 meters.
+![pl](https://github.com/user-attachments/assets/0a4571bc-ec20-4672-8f4d-11aae9d335b5)
+
 ![untitled](https://github.com/user-attachments/assets/1f6a420e-a97e-498a-97ec-df6afb3aea75)
 
 
