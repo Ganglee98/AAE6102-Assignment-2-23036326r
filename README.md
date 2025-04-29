@@ -133,8 +133,8 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
    ####  Protection Level Calculation
    %================================
         % Compute projection matrix
-        S = (A'*A) \ A';  % Least-squares projection matrix
-        P = A*S;          % Residual projection matrix
+         S = (A'*A) \ A';  % Least-squares projection matrix
+         P = A*S;          % Residual projection matrix
         
         % Compute slopes for each satellite
         slopes = zeros(length(current_sats), 1);
