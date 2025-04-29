@@ -159,9 +159,12 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
       cov_xyz = inv(A' * C * A);
       RMS_3D = sqrt(cov_xyz(1,1) + cov_xyz(2,2) + cov_xyz(3,3));
 
-    % 5. Calculate the 3D protection level (conservative coefficient k=3.0)
-      k_3D = 3.0;
-      PL = Slope_3D_max * sqrt(T) + k_3D * RMS_3D;
+    % Step 2: Compute k_md (Gaussian inverse)
+     P_md=1e-7;
+     k_md = norminv(1 - P_md/2);   % ≈ 5.33 for P_md=1e-7
+
+     k_3D = 3.0;  
+     PL = Slope_3D_max * T + k_3D * k_md ;
 
      fprintf('Protection level calculation: PL_3D = %.2f meters (maximum slope=%.2f, RMS=%.2f)\n',...
      PL, Slope_3D_max, RMS_3D);
