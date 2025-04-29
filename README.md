@@ -130,6 +130,41 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
    %===============================================
 **Bonus:**
 ### Compute the 3D protection level (PL) with a probability of false alarm (P_fa) of \(10^{-2}\) and missed detection (P_md) of \(10^{-7}\). Use a GPS pseudorange measurement sigma (σ) of 3m.
+ 
+   %=== Protection Level Calculation =============================
+        % Compute projection matrix
+        S = (A'*A) \ A';  % Least-squares projection matrix
+        P = A*S;          % Residual projection matrix
+        
+        % Compute slopes for each satellite
+        slopes = zeros(length(current_sats), 1);
+        for i = 1:length(current_sats)
+            P_ii = P(i,i);  % Diagonal element of P matrix
+            S_row = S(:,i); % Corresponding row of S matrix
+            slopes(i) = sqrt(sum(S_row(1:3).^2) / sqrt(1 - P_ii));
+        end
+        SLOPE_max = max(slopes);
+        
+        % Compute threshold multiplier (chi-square inverse)
+        % 获取卡方阈值
+        idx = find(chi2_table(:,1) == length(current_sats), 1);
+        if isempty(idx)
+            T = chi2inv(1-alpha, dof);
+        else
+            T = chi2_table(idx,2);
+        end
+        
+        % Pseudorange error sigma (3m as given)
+        sigma_pr = 3;  % meters
+        
+        % Missed detection multiplier (for P_md = 1e-7)
+        K_md = norminv(1 - 1e-7/2);  % ~5.33
+        
+        % Compute 3D Protection Level
+        PL = T * SLOPE_max * sigma_pr + K_md * sigma_pr;
+        
+        fprintf('计算保护等级: PL = %.2f 米\n', PL);
+
 
 
    %===============================================
