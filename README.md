@@ -91,7 +91,7 @@ Develop a classic weighted RAIM algorithm to improve and monitor positioning per
 - Effectively detect and exclude faulty or low-quality measurements.
 
 
-   %=== RAIM故障检测 ============================================
+   %=== RAIM ============================================
 
         % snapshot test statistic
           r = omc - A*x;  % Calculate the residuals
